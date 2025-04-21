@@ -17,10 +17,3 @@ class Player(Entity):
         if keys[pygame.K_s]: self.dy = 1
         if keys[pygame.K_a]: self.dx = -1
         if keys[pygame.K_d]: self.dx = 1
-
-    def update(self, dt, screen_width, screen_height):
-        self.x += self.dx * self.v * dt
-        self.y += self.dy * self.v * dt
-
-        self.x = max(self.rad, min(screen_width - self.rad, self.x))
-        self.y = max(self.rad, min(screen_height - self.rad, self.y))
