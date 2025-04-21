@@ -15,6 +15,7 @@ class Anamy(Entity):
         if sqrt(dx**2 + dy**2) <= self.rad + player.rad:
             self.dx = 0
             self.dy = 0
+            self.attack(player)
             return
         if dx:
             self.dx = dx // abs(dx)

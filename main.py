@@ -7,16 +7,16 @@ width, height = 800, 600
 screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
 player = Player(width // 2, height // 2, 20)
-anamy = Anamy(100, 100, 10, 10, 100)
-running = True
-while running:
+anamy = Anamy(100, 100, 10, 100, 100)
+
+while player.isAlive() and anamy.isAlive():
     dt = clock.tick(60) / 1000.0
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            player.hp = 0
 
-    player.handle_input()
+    player.handle_input(anamy)
     player.update(dt, width, height)
 
     anamy.count_way(player)
