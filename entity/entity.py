@@ -11,7 +11,7 @@ class Entity:
         self.dy = 0
         self.p_b = progress_bar(hp)
         self.damage = damage
-
+        self.color = 'white'
     def attack(self, target):
         if isinstance(target, Entity):
             target.take_damage(self.damage)
@@ -32,7 +32,7 @@ class Entity:
 
     def draw(self, screen:pygame.display):
         self.p_b.draw(screen, self.x, self.y, self.rad)
-        pygame.draw.circle(screen, 'white', self.getPos(), self.rad)
+        pygame.draw.circle(screen, self.color, self.getPos(), self.rad)
 
     def update(self, dt, screen_width, screen_height):
         self.x += self.dx * self.v * dt

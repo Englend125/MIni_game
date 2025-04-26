@@ -3,13 +3,13 @@ import pygame
 from math import sqrt
 
 class Player(Entity):
-    def __init__(self, x=0, y=0, rad=5, v=300):
-        super().__init__(x, y, rad)
+    def __init__(self, x=0, y=0, rad=5, v=300, damage = 1):
+        super().__init__(x, y, rad, v, damage)
         self.v = v
         self.dx = 0
         self.dy = 0
 
-    def handle_input(self, anamy = None, eps = 3):
+    def handle_input(self, anamy = None, eps = 1):
         keys = pygame.key.get_pressed()
 
         if not anamy is None and sqrt((anamy.x - self.x) ** 2 + (anamy.y - self.y)**2) - eps <= self.rad + anamy.rad and keys[pygame.K_k]:
